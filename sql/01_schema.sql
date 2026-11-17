@@ -1,5 +1,5 @@
 -- =====================================================================
--- Loja de Revestimentos - Criacao das tabelas (PostgreSQL)
+-- Loja de Revestimentos - Criação das tabelas (PostgreSQL)
 -- Autor: Breno Oliveira
 -- =====================================================================
 
@@ -38,7 +38,7 @@ CREATE TABLE cliente (
     id          SERIAL PRIMARY KEY,
     nome        VARCHAR(120) NOT NULL,
     tipo        CHAR(2) NOT NULL CHECK (tipo IN ('PF', 'PJ')),
-    documento   VARCHAR(14) NOT NULL UNIQUE,   -- CPF ou CNPJ, so numeros
+    documento   VARCHAR(14) NOT NULL UNIQUE,   -- CPF ou CNPJ, só números
     email       VARCHAR(120),
     cidade      VARCHAR(80),
     uf          CHAR(2),
@@ -81,6 +81,6 @@ CREATE TABLE parcela (
     UNIQUE (pedido_id, numero)
 );
 
--- Indices para deixar as consultas por data e por cliente mais rapidas
+-- Índices para deixar as consultas por data e por cliente mais rápidas
 CREATE INDEX idx_pedido_data    ON pedido (data_pedido);
 CREATE INDEX idx_pedido_cliente ON pedido (cliente_id);

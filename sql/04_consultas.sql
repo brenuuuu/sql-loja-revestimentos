@@ -1,10 +1,10 @@
 -- =====================================================================
--- Consultas de relatorio
+-- Consultas de relatório
 -- Cada consulta responde a uma pergunta do dia a dia da loja.
 -- =====================================================================
 SET search_path TO loja;
 
--- 1) Quanto a loja faturou em cada mes? (sem contar pedidos cancelados)
+-- 1) Quanto a loja faturou em cada mês? (sem contar pedidos cancelados)
 SELECT  TO_CHAR(data_pedido, 'YYYY-MM') AS mes,
         COUNT(*)              AS pedidos,
         SUM(total)            AS faturamento,
@@ -14,7 +14,7 @@ WHERE status <> 'CANCELADO'
 GROUP BY TO_CHAR(data_pedido, 'YYYY-MM')
 ORDER BY mes;
 
--- 2) Quais sao os 5 produtos que mais venderam (em reais)?
+-- 2) Quais são os 5 produtos que mais venderam (em reais)?
 SELECT  pr.nome,
         SUM(i.quantidade)                               AS quantidade,
         ROUND(SUM(i.quantidade * i.preco_unitario), 2)  AS receita
@@ -37,7 +37,7 @@ WHERE p.status <> 'CANCELADO'
 GROUP BY c.nome
 ORDER BY receita DESC;
 
--- 4) Quanto cada vendedor vendeu e quanto recebe de comissao?
+-- 4) Quanto cada vendedor vendeu e quanto recebe de comissão?
 SELECT  v.vendedor,
         COUNT(*)                                     AS pedidos,
         SUM(v.total)                                 AS vendido,
@@ -48,7 +48,7 @@ WHERE v.status <> 'CANCELADO'
 GROUP BY v.vendedor, ve.comissao
 ORDER BY vendido DESC;
 
--- 5) Quais clientes estao com parcelas atrasadas?
+-- 5) Quais clientes estão com parcelas atrasadas?
 SELECT  cliente,
         COUNT(*)          AS parcelas_atrasadas,
         SUM(valor)        AS valor_em_atraso,
@@ -58,7 +58,7 @@ WHERE situacao = 'ATRASADA'
 GROUP BY cliente
 ORDER BY valor_em_atraso DESC;
 
--- 6) Quanto a loja tem para receber nos proximos 90 dias?
+-- 6) Quanto a loja tem para receber nos próximos 90 dias?
 SELECT  TO_CHAR(vencimento, 'YYYY-MM') AS mes,
         COUNT(*)   AS parcelas,
         SUM(valor) AS a_receber
@@ -67,7 +67,7 @@ WHERE vencimento BETWEEN CURRENT_DATE AND CURRENT_DATE + 90
 GROUP BY TO_CHAR(vencimento, 'YYYY-MM')
 ORDER BY mes;
 
--- 7) Quais produtos estao com estoque abaixo do minimo?
+-- 7) Quais produtos estão com estoque abaixo do mínimo?
 SELECT  pr.nome,
         f.nome AS fornecedor,
         pr.estoque,
@@ -77,7 +77,7 @@ JOIN fornecedor f ON f.id = pr.fornecedor_id
 WHERE pr.ativo = TRUE
   AND pr.estoque < pr.estoque_minimo;
 
--- 8) Quais clientes nao compram ha mais de 90 dias (ou nunca compraram)?
+-- 8) Quais clientes não compram há mais de 90 dias (ou nunca compraram)?
 SELECT  c.nome,
         c.email,
         MAX(p.data_pedido) AS ultima_compra

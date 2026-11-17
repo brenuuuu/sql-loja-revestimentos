@@ -1,39 +1,39 @@
 -- =====================================================================
--- Dados de exemplo (ficticios)
+-- Dados de exemplo (fictícios)
 -- =====================================================================
 SET search_path TO loja;
 
 INSERT INTO categoria (nome) VALUES
-  ('Porcelanatos'), ('Pedras naturais'), ('Marmores'), ('Revestimentos de parede'), ('Argamassas e rejuntes');
+  ('Porcelanatos'), ('Pedras naturais'), ('Mármores'), ('Revestimentos de parede'), ('Argamassas e rejuntes');
 
 INSERT INTO fornecedor (nome, cnpj, cidade, uf) VALUES
-  ('Ceramica Horizonte',      '11222333000101', 'Criciuma',          'SC'),
+  ('Cerâmica Horizonte',      '11222333000101', 'Criciúma',          'SC'),
   ('Pedreira Serra Azul',     '22333444000102', 'Cachoeiro de Itapemirim', 'ES'),
-  ('Marmoraria Bela Vista',   '33444555000103', 'Sao Paulo',         'SP'),
-  ('Quimica Forte Argamassas','44555666000104', 'Jundiai',           'SP');
+  ('Marmoraria Bela Vista',   '33444555000103', 'São Paulo',         'SP'),
+  ('Química Forte Argamassas','44555666000104', 'Jundiaí',           'SP');
 
 INSERT INTO produto (nome, categoria_id, fornecedor_id, unidade, preco_custo, preco_venda, estoque, estoque_minimo) VALUES
   ('Porcelanato Acetinado 90x90 Off White', 1, 1, 'm2',  72.00, 129.90, 800, 150),
   ('Porcelanato Polido 120x120 Calacata',   1, 1, 'm2', 118.00, 219.90, 420, 100),
   ('Porcelanato Madeira 20x120 Carvalho',   1, 1, 'm2',  65.00, 109.90, 600, 120),
   ('Pedra Miracema Serrada',                2, 2, 'm2',  38.00,  79.90, 500, 100),
-  ('Pedra Sao Tome Branca',                 2, 2, 'm2',  55.00, 119.90, 300,  80),
-  ('Granito Preto Sao Gabriel',             2, 2, 'm2', 210.00, 389.00, 150,  40),
-  ('Marmore Travertino Romano',             3, 3, 'm2', 340.00, 620.00,  90,  30),
-  ('Marmore Branco Pigues',                 3, 3, 'm2', 290.00, 540.00,  70,  25),
+  ('Pedra São Tomé Branca',                 2, 2, 'm2',  55.00, 119.90, 300,  80),
+  ('Granito Preto São Gabriel',             2, 2, 'm2', 210.00, 389.00, 150,  40),
+  ('Mármore Travertino Romano',             3, 3, 'm2', 340.00, 620.00,  90,  30),
+  ('Mármore Branco Piguês',                 3, 3, 'm2', 290.00, 540.00,  70,  25),
   ('Revestimento 3D Ondas 30x60',           4, 1, 'm2',  48.00,  94.90, 260,  60),
   ('Pastilha de Vidro Azul 30x30',          4, 1, 'm2',  70.00, 139.90, 110,  40),
   ('Argamassa AC-III 20kg',                 5, 4, 'un',  24.00,  42.90, 900, 200),
-  ('Rejunte Epoxi 1kg Cinza',               5, 4, 'un',  31.00,  59.90, 140, 150);   -- ja abaixo do minimo
+  ('Rejunte Epóxi 1kg Cinza',               5, 4, 'un',  31.00,  59.90, 140, 150);   -- já abaixo do mínimo
 
 INSERT INTO cliente (nome, tipo, documento, email, cidade, uf, criado_em) VALUES
-  ('Construtora Alfa Ltda',   'PJ', '55666777000105', 'compras@alfa.com.br',  'Sao Paulo', 'SP', '2026-01-10'),
-  ('Joana Martins',           'PF', '12345678901',    'joana@email.com',      'Santo Andre','SP', '2026-02-03'),
-  ('Arq. Paulo Lima Studio',  'PJ', '66777888000106', 'paulo@limastudio.com', 'Sao Paulo', 'SP', '2026-02-20'),
+  ('Construtora Alfa Ltda',   'PJ', '55666777000105', 'compras@alfa.com.br',  'São Paulo', 'SP', '2026-01-10'),
+  ('Joana Martins',           'PF', '12345678901',    'joana@email.com',      'Santo André','SP', '2026-02-03'),
+  ('Arq. Paulo Lima Studio',  'PJ', '66777888000106', 'paulo@limastudio.com', 'São Paulo', 'SP', '2026-02-20'),
   ('Ricardo Gomes',           'PF', '23456789012',    'ricardo@email.com',    'Osasco',    'SP', '2026-03-15'),
   ('Incorporadora Prisma',    'PJ', '77888999000107', 'obras@prisma.com.br',  'Barueri',   'SP', '2026-04-01'),
-  ('Fernanda Rocha',          'PF', '34567890123',    'fe.rocha@email.com',   'Sao Paulo', 'SP', '2026-05-12'),
-  ('Hotel Mirante',           'PJ', '88999000000108', 'manutencao@mirante.com','Guaruja',  'SP', '2026-06-08'),
+  ('Fernanda Rocha',          'PF', '34567890123',    'fe.rocha@email.com',   'São Paulo', 'SP', '2026-05-12'),
+  ('Hotel Mirante',           'PJ', '88999000000108', 'manutencao@mirante.com','Guarujá',  'SP', '2026-06-08'),
   ('Lucas Andrade',           'PF', '45678901234',    'lucas.a@email.com',    'Guarulhos', 'SP', '2026-07-21');
 
 INSERT INTO vendedor (nome, comissao) VALUES

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Cria o banco e roda todos os scripts em ordem.
-# Uso: ./executar.sh [nome_do_banco]   (padrao: loja_revestimentos)
+# Uso: ./executar.sh [nome_do_banco]   (padrão: loja_revestimentos)
 set -e
 BANCO=${1:-loja_revestimentos}
 

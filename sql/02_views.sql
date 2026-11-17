@@ -1,9 +1,9 @@
 -- =====================================================================
--- Views (consultas salvas que uso nos relatorios)
+-- Views (consultas salvas que uso nos relatórios)
 -- =====================================================================
 SET search_path TO loja;
 
--- Total de cada pedido ja com desconto
+-- Total de cada pedido já com desconto
 CREATE OR REPLACE VIEW vw_pedido_total AS
 SELECT  p.id                                    AS pedido_id,
         p.data_pedido,

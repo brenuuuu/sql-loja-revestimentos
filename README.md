@@ -2,7 +2,7 @@
 
 Projeto de banco de dados em **PostgreSQL** para uma loja que vende pisos, pedras e revestimentos.
 
-Criei as tabelas, inseri dados de exemplo e escrevi consultas que respondem perguntas comuns do comercial e do financeiro, como *"quanto vendemos por mês?"*, *"quem está com parcela atrasada?"* e *"o que precisa ser reposto no estoque?"*.
+Criei as tabelas, inseri dados de exemplo e escrevi consultas que respondem a perguntas comuns do comercial e do financeiro, como *"quanto vendemos por mês?"*, *"quem está com parcela atrasada?"* e *"o que precisa ser reposto no estoque?"*.
 
 > Todos os dados são fictícios.
 
@@ -16,13 +16,13 @@ Criei as tabelas, inseri dados de exemplo e escrevi consultas que respondem perg
 
 ```mermaid
 erDiagram
-    CATEGORIA  ||--o{ PRODUTO     : agrupa
-    FORNECEDOR ||--o{ PRODUTO     : fornece
-    CLIENTE    ||--o{ PEDIDO      : faz
-    VENDEDOR   ||--o{ PEDIDO      : vende
-    PEDIDO     ||--|{ ITEM_PEDIDO : contem
-    PRODUTO    ||--o{ ITEM_PEDIDO : aparece_em
-    PEDIDO     ||--o{ PARCELA     : gera
+    CATEGORIA  ||--o{ PRODUTO     : "agrupa"
+    FORNECEDOR ||--o{ PRODUTO     : "fornece"
+    CLIENTE    ||--o{ PEDIDO      : "faz"
+    VENDEDOR   ||--o{ PEDIDO      : "vende"
+    PEDIDO     ||--|{ ITEM_PEDIDO : "contém"
+    PRODUTO    ||--o{ ITEM_PEDIDO : "aparece em"
+    PEDIDO     ||--o{ PARCELA     : "gera"
 ```
 
 ## Arquivos
